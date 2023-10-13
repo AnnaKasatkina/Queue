@@ -1,5 +1,17 @@
 ﻿#include <stdio.h>
 
+typedef struct
+{
+    int value;
+    QueueElement* next;
+} QueueElement;
+
+typedef struct
+{
+    QueueElement *front;
+    QueueElement *back;
+} Queue;
+
 void enqueue()
 {
 
