@@ -1,13 +1,20 @@
-﻿#include <stdio.h>
+﻿#include "Queue.h"
+#include <stdio.h>
 
 void enqueue()
 {
 
 }
 
-void dequeue()
+int dequeue(Queue *queue)
 {
+	QueueElement* element = queue->front;
+	int value = queue->front->value;
 
+	queue->front = queue->front->next;
+	free(element);
+
+	return value;
 }
 
 void isEmpty()
