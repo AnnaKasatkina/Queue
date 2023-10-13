@@ -2,8 +2,14 @@
 
 typedef struct
 {
-	int front;
-	int back;
+	int value;
+	QueueElement* next;
+} QueueElement;
+
+typedef struct
+{
+	QueueElement *front;
+	QueueElement *back;
 } Queue;
 
 void enqueue();
