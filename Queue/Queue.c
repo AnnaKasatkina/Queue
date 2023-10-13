@@ -13,9 +13,15 @@ int enqueue(Queue *queue, const int value)
     return 0;
 }
 
-void dequeue()
+int dequeue(Queue *queue)
 {
+	QueueElement* element = queue->front;
+	int value = queue->front->value;
 
+	queue->front = queue->front->next;
+	free(element);
+
+	return value;
 }
 
 void isEmpty()

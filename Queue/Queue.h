@@ -14,7 +14,7 @@ typedef struct Queue
 
 int enqueue(Queue* queue, const int value);
 
-void dequeue();
+int dequeue(Queue* queue);
 
 void isEmpty();
 

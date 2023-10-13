@@ -15,10 +15,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="main.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Queue.c">
+=======
+    <ClCompile Include="Queue.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+>>>>>>> bbb63c606d347a209301d3d06d09e6cd3571d057
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
