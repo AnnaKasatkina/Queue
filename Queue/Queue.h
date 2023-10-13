@@ -1,18 +1,18 @@
 #pragma once
 
-typedef struct
+typedef struct QueueElement
 {
 	int value;
-	QueueElement* next;
+	struct QueueElement* next;
 } QueueElement;
 
-typedef struct
+typedef struct Queue
 {
-	QueueElement *front;
-	QueueElement *back;
+	struct QueueElement *front;
+	struct QueueElement *back;
 } Queue;
 
-void enqueue();
+int enqueue(Queue* queue, const int value);
 
 void dequeue();
 
