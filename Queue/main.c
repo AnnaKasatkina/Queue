@@ -5,8 +5,7 @@
 
 int main()
 {
-	Queue* queue = malloc(sizeof(Queue));
-	createQueue(queue);
+	Queue* queue = createQueue();
 	enqueue(queue, 7);
 	enqueue(queue, 8);
 	enqueue(queue, 9);

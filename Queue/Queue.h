@@ -14,7 +14,7 @@ typedef struct Queue
     struct QueueElement* back;
 } Queue;
 
-void createQueue(Queue* queue);
+Queue* createQueue();
 
 void createQueueElement(QueueElement* queueElement, const int value);
 

@@ -1,13 +1,15 @@
-﻿﻿#include "Queue.h"
+﻿#include "Queue.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-void createQueue(Queue* queue)
+Queue* createQueue()
 {
+    Queue* queue = malloc(sizeof(Queue));
     queue->front = 0;
     queue->back = 0;
+    return queue;
 }
 
 void createQueueElement(QueueElement* queueElement, const int value)
