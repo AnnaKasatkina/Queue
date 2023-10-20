@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdbool.h>
+
 typedef struct QueueElement
 {
 	int value;
@@ -12,11 +14,11 @@ typedef struct Queue
 	struct QueueElement *back;
 } Queue;
 
-int enqueue(Queue* queue, const int value);
+bool isEmpty();
+
+void enqueue(Queue* queue, const int value);
 
 int dequeue(Queue* queue);
-
-void isEmpty();
 
 void deleteQueue();
 

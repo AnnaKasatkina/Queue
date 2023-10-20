@@ -1,37 +1,43 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
 #include "Queue.h"
 
-int enqueue(Queue *queue, const int value)
+bool isEmpty(Queue* queue)
 {
-    QueueElement* tail = malloc(sizeof(QueueElement));
-    tail->value = value;
-    tail->next = NULL;
-    queue->back = tail;
+    return (queue->front == 0);
+}
 
-    free(tail);
-    return 0;
+void enqueue(Queue *queue, const int value)
+{
+    QueueElement* newElement = malloc(sizeof(QueueElement));
+    createQueueElement(newElement, value);
+
+    if ((queue->back == 0) || (queue->front == 0))
+    {
+        queue->back = newElement;
+        queue->front = newElement;
+    }
+    else
+    {
+        queue->back->next = newElement;
+        queue->back = newElement;
+    }
 }
 
 int dequeue(Queue *queue)
 {
-	QueueElement* element = queue->front;
-	int value = queue->front->value;
-
-	queue->front = queue->front->next;
-	free(element);
-
-	return value;
+	
 }
 
-void isEmpty()
+void deleteQueue(Queue* queue)
 {
-
-}
-
-void deleteQueue()
-{
-
+    while (!isEmpty)
+    {
+        dequeue(queue);
+    }
+    free(queue);
 }
 
 void front()
@@ -44,7 +50,12 @@ void back()
 
 }
 
-void printQueue()
+void printQueue(Queue* queue)
 {
-
+    QueueElement* tmpElement = queue->front;
+    while (tmpElement)
+    {
+        printf("%d ", tmpElement->value);
+        tmpElement = tmpElement->next;
+    }
 }
