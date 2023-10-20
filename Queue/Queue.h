@@ -4,26 +4,30 @@
 
 typedef struct QueueElement
 {
-	int value;
-	struct QueueElement* next;
+    int value;
+    struct QueueElement* next;
 } QueueElement;
 
 typedef struct Queue
 {
-	struct QueueElement *front;
-	struct QueueElement *back;
+    struct QueueElement* front;
+    struct QueueElement* back;
 } Queue;
 
-bool isEmpty();
+void createQueue(Queue* queue);
+
+void createQueueElement(QueueElement* queueElement, const int value);
+
+bool isEmpty(Queue* queue);
 
 void enqueue(Queue* queue, const int value);
 
 int dequeue(Queue* queue);
 
-void deleteQueue();
+void deleteQueue(Queue* queue);
 
-void front();
+int front(Queue* queue);
 
-void back();
+int back(Queue* queue);
 
-void printQueue();
+void printQueue(Queue* queue);
