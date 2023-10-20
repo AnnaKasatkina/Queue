@@ -1,50 +1,59 @@
-﻿#include <stdio.h>
+﻿#include "Queue.h"
+
+#include <stdio.h>
 #include <stdlib.h>
-#include "Queue.h"
+#include <stdbool.h>
 
-int enqueue(Queue *queue, const int value)
+void createQueue(Queue* queue)
 {
-    QueueElement* tail = malloc(sizeof(QueueElement));
-    tail->value = value;
-    tail->next = NULL;
-    queue->back = tail;
-
-    free(tail);
-    return 0;
+	queue->front = 0;
+	queue->back = 0;
 }
 
-int dequeue(Queue *queue)
+void createQueueElement(QueueElement* queueElement, const int value)
 {
-	QueueElement* element = queue->front;
-	int value = queue->front->value;
+	queueElement->next = 0;
+	queueElement->value = value;
+}
 
+bool isEmpty(Queue* queue)
+{
+	return (queue->front == 0);
+}
+
+void enqueue(Queue* queue, const int value)
+{
+}
+
+int dequeue(Queue* queue)
+{
+	if (isEmpty(queue))
+	{
+		printf("Queue is empty!");
+		exit(EXIT_FAILURE);
+	}
+	QueueElement* tmpElement = queue->front;
 	queue->front = queue->front->next;
-	free(element);
+	int value = tmpElement->value;
+	free(tmpElement);
 
 	return value;
 }
 
-void isEmpty()
+void deleteQueue(Queue* queue)
 {
-
 }
 
-void deleteQueue()
+int front(Queue* queue)
 {
-
+	return queue->front->value;
 }
 
-void front()
+int back(Queue* queue)
 {
-
+	return queue->back->value;
 }
 
-void back()
+void printQueue(Queue* queue)
 {
-
-}
-
-void printQueue()
-{
-
 }

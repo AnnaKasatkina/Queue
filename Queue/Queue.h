@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdbool.h>
+
 typedef struct QueueElement
 {
 	int value;
@@ -8,20 +10,24 @@ typedef struct QueueElement
 
 typedef struct Queue
 {
-	struct QueueElement *front;
-	struct QueueElement *back;
+	struct QueueElement* front;
+	struct QueueElement* back;
 } Queue;
 
-int enqueue(Queue* queue, const int value);
+void createQueue(Queue* queue);
+
+void createQueueElement(QueueElement* queueElement, const int value);
+
+bool isEmpty(Queue* queue);
+
+void enqueue(Queue* queue, const int value);
 
 int dequeue(Queue* queue);
 
-void isEmpty();
+void deleteQueue(Queue* queue);
 
-void deleteQueue();
+int front(Queue* queue);
 
-void front();
+int back(Queue* queue);
 
-void back();
-
-void printQueue();
+void printQueue(Queue* queue);
