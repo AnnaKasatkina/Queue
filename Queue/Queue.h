@@ -2,17 +2,9 @@
 
 #include <stdbool.h>
 
-typedef struct QueueElement
-{
-    int value;
-    struct QueueElement* next;
-} QueueElement;
+typedef struct Queue Queue;
 
-typedef struct Queue
-{
-    struct QueueElement* front;
-    struct QueueElement* back;
-} Queue;
+typedef struct QueueElement QueueElement;
 
 Queue* createQueue();
 

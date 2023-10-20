@@ -4,6 +4,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+typedef struct QueueElement
+{
+    int value;
+    struct QueueElement* next;
+} QueueElement;
+
+typedef struct Queue
+{
+    struct QueueElement* front;
+    struct QueueElement* back;
+} Queue;
+
 Queue* createQueue()
 {
     Queue* queue = malloc(sizeof(Queue));
