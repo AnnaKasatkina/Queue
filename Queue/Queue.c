@@ -23,6 +23,19 @@ bool isEmpty(Queue* queue)
 
 void enqueue(Queue* queue, const int value)
 {
+	QueueElement* newElement = malloc(sizeof(QueueElement));
+	createQueueElement(newElement, value);
+
+	if ((queue->back == 0) && (queue->front == 0))
+	{
+		queue->back = newElement;
+		queue->front = newElement;
+	}
+	else
+	{
+		queue->back->next = newElement;
+		queue->back = newElement;
+	}
 }
 
 int dequeue(Queue* queue)
@@ -42,6 +55,11 @@ int dequeue(Queue* queue)
 
 void deleteQueue(Queue* queue)
 {
+	while (!isEmpty)
+	{
+		dequeue(queue);
+	}
+	free(queue);
 }
 
 int front(Queue* queue)
@@ -56,4 +74,10 @@ int back(Queue* queue)
 
 void printQueue(Queue* queue)
 {
+	QueueElement* tmpElement = queue->front;
+	while (tmpElement)
+	{
+		printf("%d ", tmpElement->value);
+		tmpElement = tmpElement->next;
+	}
 }
